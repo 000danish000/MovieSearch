@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background-color: #212121;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  text-align: center;
+}
+
+.user_input {
+  padding: 15px;
+  margin: 10px;
+  font-family: system-ui;
+  font-size: larger;
+  border-radius: 50px;
+  outline: none;
+  border: 0;
+  width: 50%;
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card_movie {
+  background-color: aliceblue;
+  border-radius: 10px;
+  width: 17%;
+  height: 32em;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px;
+  background-repeat: round;
+  position: relative;
+  overflow: hidden;
+  background-image: url(https://image.tmdb.org/t/p/w1280/2RVcJbWFmICRDsVxRI8F5xRmRsK.jpg);
+}
+h3 {
+  font-size: x-large;
+  text-decoration-line: underline;
+  font-size: x-large;
+  text-decoration-line: underline;
+  text-align: center;
+  color: white;
+  position: absolute;
+  top: 0;
+  background-color: #64636396;
+  margin: 3px;
+  padding: 7px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+.m_details {
+  width: auto;
+  height: auto;
+  min-width: 295px;
+  background-color: #35363669;
+  min-height: 230px;
+  margin: 5px;
+  border-radius: 10px;
+  color: white;
+  font-family: system-ui;
+  backdrop-filter: blur(5px);
+
+  position: absolute;
+  top: 100%; /* Start from the bottom */
+  left: 0;
+  transition: all 0.3s ease; /* Adjust transition duration and easing as needed */
+}
+.m_desc {
+  padding: 5px;
+  margin: 5px;
+  height: 180px;
+  overflow: auto;
+}
+.overflow {
+  height: 2em;
+}
+.card_movie:hover .m_details {
+  top: 50%; /* Move to the top on hover */
+}
+.ratingDate {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 15px 0px 15px;
+}
+i {
+  padding-right: 5px;
+}
