@@ -1,15 +1,14 @@
 const search = document.querySelector(".user_input");
 const container = document.querySelector(".container");
+const sortingBtn = document.getElementById("sort");
 
 const getMovieDetails = async () => {
+  sortingBtn.removeAttribute("disabled");
   const searchApi = await fetch(
     `https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=${search.value}`
   );
   const data = await searchApi.json();
-  console.log(data);
   const { results } = data;
-  console.log(results);
-
   results.forEach((res) => {
     cardMovie(
       res.original_title,
@@ -64,6 +63,7 @@ const clearCardMovie = () => {
 search.addEventListener("input", (e) => {
   if (container.innerHTML === "\n      ") {
     getMovieDetails();
+    sortingBtn.setAttribute("disabled","true");
   } else {
     clearCardMovie();
     getMovieDetails();
@@ -77,3 +77,20 @@ search.addEventListener("input", (e) => {
 // const res = await fetch(`https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${searchInput.value.toLowerCase()}`);
 // const data = await res.json();
 // const { name, id, weight, height, stats, sprites, types } = data;
+
+function sortBtn() {
+  const allCardMovieArr = Array.from(
+    container.getElementsByClassName("card_movie")
+  );
+
+  allCardMovieArr.sort((a, b) => {
+    const dateA = new Date(a.querySelector(".rdate").textContent);
+    const dateB = new Date(b.querySelector(".rdate").textContent);
+    return dateB - dateA;
+  });
+
+  container.innerHTML = "";
+  allCardMovieArr.forEach((newCard) => {
+    container.appendChild(newCard);
+  });
+}
